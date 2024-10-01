@@ -1,0 +1,52 @@
+@import '@styles/mixins';
+
+.favourites {
+    padding-block: 50px;
+}
+
+.header {
+    padding-bottom: 50px;
+}
+
+.cards {
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 20px;
+
+    @media (max-width: 1400px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 1060px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 730px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.buttonWrapper {
+    @include flex-center;
+    padding-top: 50px;
+}
+
+.empty {
+    @include flex-center;
+    flex-direction: column;
+    row-gap: 30px;
+
+    p {
+        background-color: var(--color-additional);
+        padding: 30px;
+        border-radius: var(--border-radius);
+    }
+
+}
+
+.emptyImage {
+    max-width: 400px;
+    width: 100%;
+}

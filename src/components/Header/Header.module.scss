@@ -1,0 +1,48 @@
+@import '@styles/mixins';
+
+.header {
+    @include flex-between;
+    padding-block: 30px;
+    margin-top: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
+
+    @media (max-width: 700px) {
+        row-gap: 20px;
+        flex-direction: column;
+    }
+}
+
+.wrapper {
+    @include flex-center;
+    -moz-column-gap: clamp(0.625rem, 0.125rem + 2.5vw, 3.125rem);
+    column-gap: clamp(0.625rem, 0.125rem + 2.5vw, 3.125rem);
+
+    @media (max-width: 450px) {
+        .icon {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
+
+.favouritesLink {
+    position: relative;
+}
+
+.counter {
+    @include square(28px);
+    @include flex-center;
+    line-height: 1;
+    position: absolute;
+    left: 80%;
+    top: 0;
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: 16px;
+    background-color: var(--color-light);
+    border-radius: 50%;
+
+    @media (max-width: 450px) {
+        @include square(20px);
+        font-size: 12px;
+    }
+}

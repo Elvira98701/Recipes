@@ -1,0 +1,12 @@
+:root {
+    --color-dark: #222222;
+    --color-light: #eeeeee;
+    --color-accent: #e25e20;
+    --color-additional: #2e2e2e;
+    --color-lightgrey: #696866;
+
+    --container-padding-x: clamp(1.25rem, 0.875rem + 1.88vw, 3.125rem);
+    --border-radius: 16px;
+
+    --font-family-base: 'General Sans', sans-serif;
+}
