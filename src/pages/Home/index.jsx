@@ -14,7 +14,7 @@ import styles from "./Home.module.scss";
 
 const Home = () => {
   const {
-    state: { searchValue, category, sortType, order, skipItems },
+    filterState: { searchValue, category, sortType, order, skipItems },
   } = useContext(FilterContext);
   const {
     favouritesState: { favouritesIdList },

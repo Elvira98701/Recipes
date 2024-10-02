@@ -12,10 +12,10 @@ const reducer = (state, action) => ({ ...state, ...action });
 export const FilterContext = createContext();
 
 const FilterProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [filterState, filterDispatch] = useReducer(reducer, initialState);
 
   return (
-    <FilterContext.Provider value={{ state, dispatch }}>
+    <FilterContext.Provider value={{ filterState, filterDispatch }}>
       {children}
     </FilterContext.Provider>
   );

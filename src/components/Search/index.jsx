@@ -4,12 +4,16 @@ import { FilterContext } from "@components/FilterProvider";
 import styles from "./Search.module.scss";
 
 const Search = () => {
-  const { dispatch } = useContext(FilterContext);
+  const { filterDispatch } = useContext(FilterContext);
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      dispatch({ searchValue: inputValue, category: "all", skipItems: 0 });
+      filterDispatch({
+        searchValue: inputValue,
+        category: "all",
+        skipItems: 0,
+      });
     }, 500);
 
     return () => clearTimeout(timeoutId);

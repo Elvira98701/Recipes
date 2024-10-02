@@ -4,8 +4,8 @@ import styles from "./Pagination.module.scss";
 
 const Pagination = ({ totalItems }) => {
   const {
-    state: { skipItems },
-    dispatch,
+    filterState: { skipItems },
+    filterDispatch,
   } = useContext(FilterContext);
   const paginationLenght = Math.ceil(totalItems / 8);
 
@@ -13,7 +13,7 @@ const Pagination = ({ totalItems }) => {
     <div className={styles.pagination}>
       <button
         className={styles.item}
-        onClick={() => dispatch({ skipItems: skipItems - 1 })}
+        onClick={() => filterDispatch({ skipItems: skipItems - 1 })}
         disabled={skipItems === 0}
         type="button"
       >
@@ -31,7 +31,7 @@ const Pagination = ({ totalItems }) => {
         <button
           className={`${styles.item} ${skipItems === i ? styles.active : ""}`}
           key={i}
-          onClick={() => dispatch({ skipItems: i })}
+          onClick={() => filterDispatch({ skipItems: i })}
           type="button"
         >
           {i + 1}
@@ -39,7 +39,7 @@ const Pagination = ({ totalItems }) => {
       ))}
       <button
         className={styles.item}
-        onClick={() => dispatch({ skipItems: skipItems + 1 })}
+        onClick={() => filterDispatch({ skipItems: skipItems + 1 })}
         type="button"
         disabled={skipItems === paginationLenght - 1}
       >

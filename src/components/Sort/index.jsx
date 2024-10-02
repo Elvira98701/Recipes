@@ -11,8 +11,8 @@ const sortList = [
 
 const Sort = () => {
   const {
-    state: { sortType, order },
-    dispatch,
+    filterState: { sortType, order },
+    filterDispatch,
   } = useContext(FilterContext);
 
   const [open, setOpen] = useState(false);
@@ -33,7 +33,7 @@ const Sort = () => {
         <svg
           className={styles.icon}
           style={{ transform: order ? "" : "rotate(180deg)" }}
-          onClick={() => dispatch({ order: !order })}
+          onClick={() => filterDispatch({ order: !order })}
           width="15"
           height="10"
           viewBox="0 0 10 6"
@@ -84,7 +84,7 @@ const Sort = () => {
                     sort === sortType ? styles.active : ""
                   }`}
                   key={id}
-                  onClick={() => dispatch({ sortType: sort })}
+                  onClick={() => filterDispatch({ sortType: sort })}
                 >
                   {name}
                 </li>

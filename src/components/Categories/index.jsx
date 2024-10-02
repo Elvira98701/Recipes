@@ -48,8 +48,8 @@ const categories = [
 
 const Categories = () => {
   const {
-    state: { category },
-    dispatch,
+    filterState: { category },
+    filterDispatch,
   } = useContext(FilterContext);
 
   return (
@@ -62,7 +62,11 @@ const Categories = () => {
             }`}
             key={id}
             onClick={() => {
-              dispatch({ category: title, searchValue: "", skipItems: 0 });
+              filterDispatch({
+                category: title,
+                searchValue: "",
+                skipItems: 0,
+              });
             }}
           >
             {title}
