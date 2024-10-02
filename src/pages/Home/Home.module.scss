@@ -6,7 +6,7 @@
     grid-template-rows: 1fr;
     gap: 0px 0px;
     grid-auto-flow: row;
-    padding-block: 50px;
+    padding-block: clamp(1.25rem, 0.875rem + 1.88vw, 3.125rem);
 
     @media (max-width: 1200px) {
         grid-template-columns: 1fr;

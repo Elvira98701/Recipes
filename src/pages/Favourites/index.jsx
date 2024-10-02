@@ -9,12 +9,12 @@ import styles from "./Favourites.module.scss";
 
 const Favourites = () => {
   const {
-    state: { favouritesList, favouritesIdList },
-    dispatch,
+    favouritesState: { favouritesList, favouritesIdList },
+    favouritesDispatch,
   } = useContext(FavouritesContext);
 
   const handleAddFavourites = (obj) => {
-    dispatch({
+    favouritesDispatch({
       type: "toggle_item",
       newItem: obj,
     });
@@ -24,7 +24,7 @@ const Favourites = () => {
     <div className={styles.favourites}>
       <PageTransition />
       <div className={styles.header}>
-        <h1>Favourites</h1>
+        <h1 className={styles.title}>Favourites</h1>
       </div>
       {favouritesList.length > 0 ? (
         <>
@@ -39,7 +39,7 @@ const Favourites = () => {
             ))}
           </div>
           <div className={styles.buttonWrapper}>
-            <Button onClick={() => dispatch({ type: "clear" })}>
+            <Button onClick={() => favouritesDispatch({ type: "clear" })}>
               Clear all
             </Button>
           </div>

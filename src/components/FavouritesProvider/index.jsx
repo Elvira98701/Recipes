@@ -1,8 +1,18 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
+
+const initialStateKey = "favouritesState";
 
 const initialState = {
   favouritesList: [],
   favouritesIdList: [],
+};
+
+const getInitialState = () => {
+  const storedState = localStorage.getItem(initialStateKey);
+  if (storedState) {
+    return JSON.parse(storedState);
+  }
+  return initialState;
 };
 
 const reducer = (state, action) => {
@@ -43,10 +53,18 @@ const reducer = (state, action) => {
 export const FavouritesContext = createContext();
 
 const FavouritesProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [favouritesState, favouritesDispatch] = useReducer(
+    reducer,
+    initialState,
+    getInitialState
+  );
+
+  useEffect(() => {
+    localStorage.setItem(initialStateKey, JSON.stringify(favouritesState));
+  }, [favouritesState]);
 
   return (
-    <FavouritesContext.Provider value={{ state, dispatch }}>
+    <FavouritesContext.Provider value={{ favouritesState, favouritesDispatch }}>
       {children}
     </FavouritesContext.Provider>
   );

@@ -8,7 +8,7 @@ import styles from "./Header.module.scss";
 
 const Header = () => {
   const {
-    state: { favouritesList },
+    favouritesState: { favouritesList },
   } = useContext(FavouritesContext);
 
   return (

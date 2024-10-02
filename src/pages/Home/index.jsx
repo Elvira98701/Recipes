@@ -17,8 +17,8 @@ const Home = () => {
     state: { searchValue, category, sortType, order, skipItems },
   } = useContext(FilterContext);
   const {
-    state: { favouritesIdList },
-    dispatch,
+    favouritesState: { favouritesIdList },
+    favouritesDispatch,
   } = useContext(FavouritesContext);
 
   const { items, total, isLoading } = useFetch(
@@ -34,7 +34,7 @@ const Home = () => {
   );
 
   const handleAddFavourites = (obj) => {
-    dispatch({
+    favouritesDispatch({
       type: "toggle_item",
       newItem: obj,
     });
