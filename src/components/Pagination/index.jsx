@@ -7,13 +7,17 @@ const Pagination = ({ totalItems }) => {
     filterState: { skipItems },
     filterDispatch,
   } = useContext(FilterContext);
-  const paginationLenght = Math.ceil(totalItems / 8);
+  const paginationLength = totalItems > 0 ? Math.ceil(totalItems / 8) : 0;
+
+  if (paginationLength === 0) return null;
 
   return (
     <div className={styles.pagination}>
       <button
         className={styles.item}
-        onClick={() => filterDispatch({ skipItems: skipItems - 1 })}
+        onClick={() =>
+          filterDispatch({ skipItems: Math.max(skipItems - 1, 0) })
+        }
         disabled={skipItems === 0}
         type="button"
       >
@@ -27,7 +31,7 @@ const Pagination = ({ totalItems }) => {
           <path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path>
         </svg>
       </button>
-      {[...new Array(paginationLenght)].map((_, i) => (
+      {[...new Array(paginationLength)].map((_, i) => (
         <button
           className={`${styles.item} ${skipItems === i ? styles.active : ""}`}
           key={i}
@@ -39,9 +43,13 @@ const Pagination = ({ totalItems }) => {
       ))}
       <button
         className={styles.item}
-        onClick={() => filterDispatch({ skipItems: skipItems + 1 })}
+        onClick={() =>
+          filterDispatch({
+            skipItems: Math.min(skipItems + 1, paginationLength - 1),
+          })
+        }
         type="button"
-        disabled={skipItems === paginationLenght - 1}
+        disabled={skipItems === paginationLength - 1}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -17,7 +17,7 @@ const Search = () => {
     }, 500);
 
     return () => clearTimeout(timeoutId);
-  }, [inputValue]);
+  }, [inputValue, filterDispatch]);
 
   return (
     <div className={styles.search}>
@@ -36,6 +36,7 @@ const Search = () => {
         onChange={(event) => setInputValue(event.target.value)}
         className={styles.input}
         placeholder="Type to search..."
+        type="text"
       />
 
       <AnimatePresence initial={false}>

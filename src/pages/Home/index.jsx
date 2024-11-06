@@ -17,7 +17,7 @@ const Home = () => {
     filterState: { searchValue, category, sortType, order, skipItems },
   } = useContext(FilterContext);
   const {
-    favouritesState: { favouritesIdList },
+    favouritesState: { favouritesList },
     favouritesDispatch,
   } = useContext(FavouritesContext);
 
@@ -68,7 +68,9 @@ const Home = () => {
             items.map((item) => (
               <Card
                 handleClick={() => handleAddFavourites(item)}
-                active={favouritesIdList.includes(item.id)}
+                active={
+                  favouritesList.findIndex((obj) => obj.id === item.id) !== -1
+                }
                 key={item.id}
                 {...item}
               />

@@ -9,7 +9,7 @@ import styles from "./Favourites.module.scss";
 
 const Favourites = () => {
   const {
-    favouritesState: { favouritesList, favouritesIdList },
+    favouritesState: { favouritesList },
     favouritesDispatch,
   } = useContext(FavouritesContext);
 
@@ -32,7 +32,9 @@ const Favourites = () => {
             {favouritesList.map((item) => (
               <Card
                 handleClick={() => handleAddFavourites(item)}
-                active={favouritesIdList.includes(item.id)}
+                active={
+                  favouritesList.findIndex((obj) => obj.id === item.id) !== -1
+                }
                 key={item.id}
                 {...item}
               />

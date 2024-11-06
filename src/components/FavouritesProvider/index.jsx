@@ -4,7 +4,6 @@ const initialStateKey = "favouritesState";
 
 const initialState = {
   favouritesList: [],
-  favouritesIdList: [],
 };
 
 const getInitialState = () => {
@@ -22,30 +21,22 @@ const reducer = (state, action) => {
         (obj) => obj.id === action.newItem.id
       );
 
-      const idList = state.favouritesList.map((obj) => obj.id);
-
       if (existingIndex !== -1) {
         return {
           favouritesList: [
             ...state.favouritesList.slice(0, existingIndex),
             ...state.favouritesList.slice(existingIndex + 1),
           ],
-          favouritesIdList: [
-            ...idList.slice(0, existingIndex),
-            ...idList.slice(existingIndex + 1),
-          ],
         };
       } else {
         return {
           favouritesList: [...state.favouritesList, action.newItem],
-          favouritesIdList: [...idList, action.newItem.id],
         };
       }
     }
     case "clear": {
       return {
         favouritesList: [],
-        favouritesIdList: [],
       };
     }
   }

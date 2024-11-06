@@ -63,6 +63,7 @@
     -webkit-animation: zoom 0.3s ease-in;
     animation: zoom 0.3s ease-in;
     position: relative;
+    padding-block: 25px;
 
     &::-webkit-scrollbar {
         width: 5px;
@@ -133,6 +134,27 @@
 
 .subtitle {
     margin-top: 20px;
+}
+
+.ingredientsList {
+    border-bottom: 1px solid rgb(0 0 0 / 0.1);
+    padding-block: 20px;
+}
+
+.ingredientsItem {
+    position: relative;
+    padding-left: 30px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        @include square(15px);
+        border: 2px solid var(--color-accent);
+        border-radius: 50%;
+    }
 }
 
 @-webkit-keyframes zoom {

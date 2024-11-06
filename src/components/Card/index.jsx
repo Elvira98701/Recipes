@@ -8,8 +8,8 @@ const Card = ({
   rating,
   handleClick,
   active,
-  ingredients,
-  instructions,
+  ingredients = [],
+  instructions = [],
   cookTimeMinutes,
   caloriesPerServing,
   difficulty,
@@ -74,15 +74,19 @@ const Card = ({
           </div>
           <div>
             <h4 className={styles.subtitle}>Ingredients</h4>
-            <ul>
+            <ul className={styles.ingredientsList}>
               {ingredients.map((ingredient, i) => (
-                <li key={i}>{ingredient}</li>
+                <li className={styles.ingredientsItem} key={i}>
+                  {ingredient}
+                </li>
               ))}
             </ul>
             <h4 className={styles.subtitle}>Instructions</h4>
-            <ol>
+            <ol className={styles.instructionsList}>
               {instructions.map((instruction, i) => (
-                <li key={i}>{instruction}</li>
+                <li className={styles.instructionsItem} key={i}>
+                  {instruction}
+                </li>
               ))}
             </ol>
           </div>
