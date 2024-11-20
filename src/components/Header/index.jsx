@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "@components/Logo";
 import Search from "@components/Search";
 import { FavouritesContext } from "@components/FavouritesProvider";
@@ -10,12 +10,13 @@ const Header = () => {
   const {
     favouritesState: { favouritesList },
   } = useContext(FavouritesContext);
+  const { pathname } = useLocation();
 
   return (
     <header className={`${styles.header} container`}>
       <Logo />
       <div className={styles.wrapper}>
-        <Search />
+        {pathname !== "/favourites" && <Search />}
         <Link to="/favourites" className={styles.favouritesLink}>
           <svg
             className={styles.icon}
