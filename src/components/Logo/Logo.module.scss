@@ -1,14 +1,14 @@
-@import '@styles/mixins';
+@import "@styles/mixins";
 
 .logo {
-    @include flex-center;
-    flex-direction: column;
+  @include flex-center;
+  flex-direction: column;
 }
 
 .text {
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 25px;
-    color: var(--color-accent);
-    line-height: 1;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 25px;
+  color: var(--color-accent);
+  line-height: 1;
 }

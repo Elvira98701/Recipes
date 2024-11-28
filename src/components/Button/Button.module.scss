@@ -1,21 +1,21 @@
-@import '@styles/mixins';
+@import "@styles/mixins";
 
 .button {
-    @include flex-center;
-    -moz-column-gap: 5px;
-    column-gap: 5px;
-    height: 45px;
-    padding-inline: 30px;
-    color: var(--color-light);
-    border-radius: var(--border-radius);
-    background-color: var(--color-additional);
-    font-weight: 500;
-    transition: all 0.5s ease-in-out;
-    cursor: pointer;
-    text-transform: capitalize;
+  @include flex-center;
+  -moz-column-gap: 5px;
+  column-gap: 5px;
+  height: 40px;
+  padding-inline: 30px;
+  color: var(--color-light);
+  border-radius: var(--border-radius);
+  background-color: var(--color-additional);
+  font-weight: 500;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  text-transform: capitalize;
 
-    &:hover {
-        background-color: var(--color-light);
-        color: var(--color-dark);
-    }
+  &:hover {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+  }
 }

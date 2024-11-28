@@ -1,68 +1,71 @@
-@import '@styles/mixins';
+@import "@styles/mixins";
 
 .container {
-    display: grid;
-    grid-template-columns: 0.5fr 2.5fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    padding-block: clamp(1.25rem, 0.875rem + 1.88vw, 3.125rem);
+  display: grid;
+  grid-template-columns: 0.5fr 2.5fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  padding-block: 20px;
 
-    @media (max-width: 1200px) {
-        grid-template-columns: 1fr;
-    }
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .aside {
-    position: relative;
+  position: relative;
 }
 
 .content {
-    padding-left: 20px;
+  padding-left: 20px;
 
-    @media (max-width: 1200px) {
-        padding-left: 0;
-    }
+  @media (max-width: 1200px) {
+    padding-left: 0;
+  }
 }
 
 .heading {
-    @include flex-between;
-    padding-block: 40px 80px;
+  @include flex-between;
+  padding-bottom: 30px;
 
-    @media (max-width: 800px) {
-        flex-direction: column;
-        row-gap: 20px;
-        padding-block: 40px;
-    }
+  @media (max-width: 1200px) {
+    padding-block: 30px;
+  }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    row-gap: 20px;
+  }
 }
 
 .title {
-    color: var(--color-light);
+  color: var(--color-light);
 }
 
 .cards {
-    display: grid;
-    flex-wrap: wrap;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    gap: 20px;
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 20px;
 
-    @media (max-width: 1442px) {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  @media (max-width: 1442px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-    @media (max-width: 1060px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  @media (max-width: 1060px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    @media (max-width: 730px) {
-        grid-template-columns: repeat(1, 1fr);
-    }
+  @media (max-width: 730px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .noResults {
-    @include flex-center;
-    background-color: var(--color-additional);
-    padding: 20px;
-    border-radius: var(--border-radius);
+  @include flex-center;
+  background-color: var(--color-additional);
+  padding: 20px;
+  border-radius: var(--border-radius);
 }

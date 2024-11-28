@@ -1,53 +1,52 @@
-@import '@styles/mixins';
+@import "@styles/mixins";
 
 .categories {
-    background-color: var(--color-additional);
-    color: var(--color-lightgrey);
-    border-radius: var(--border-radius);
-    padding: 20px;
-    top: 50px;
-    position: -webkit-sticky;
-    position: sticky;
+  background-color: var(--color-additional);
+  color: var(--color-lightgrey);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  top: 50px;
+  position: -webkit-sticky;
+  position: sticky;
 
-    @media (max-width: 1200px) {
-        position: static;
-        padding: 10px;
-    }
+  @media (max-width: 1200px) {
+    position: static;
+    padding: 10px;
+  }
 }
 
 .list {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
 
-    @media (max-width: 1200px) {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+  @media (max-width: 1200px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 .item {
-    padding: 10px 20px;
-    border-radius: var(--border-radius);
-    font-size: 18px;
-    transition: all 0.3s;
-    text-transform: capitalize;
-    cursor: pointer;
-    background-color: transparent;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  font-size: 18px;
+  transition: all 0.3s;
+  text-transform: capitalize;
+  cursor: pointer;
+  background-color: transparent;
 
-    &:hover {
-        color: var(--color-light);
-    }
+  &:hover {
+    color: var(--color-light);
+  }
 
-    @media (max-width: 750px) {
-        font-size: 16px;
-        padding: 5px 10px;
-    }
-
+  @media (max-width: 750px) {
+    font-size: 16px;
+    padding: 5px 10px;
+  }
 }
 
 .active {
-    background-color: var(--color-accent);
-    color: var(--color-light);
+  background-color: var(--color-accent);
+  color: var(--color-light);
 }

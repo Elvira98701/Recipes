@@ -1,70 +1,69 @@
-@import '@styles/mixins';
+@import "@styles/mixins";
 
 .sort {
-    width: 300px;
-    position: relative;
-    z-index: 1;
-    background-color: var(--color-additional);
-    padding: 10px;
-    border-radius: var(--border-radius);
-    @include flex-center;
-    -moz-column-gap: 10px;
-    column-gap: 10px;
+  width: 300px;
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-additional);
+  padding: 10px;
+  border-radius: var(--border-radius);
+  @include flex-center;
+  -moz-column-gap: 10px;
+  column-gap: 10px;
 
-    b {
-        color: var(--color-accent);
-    }
+  b {
+    color: var(--color-accent);
+  }
 
-    span {
-        color: var(--color-light);
-    }
+  span {
+    color: var(--color-light);
+  }
 
-    @media (max-width: 450px) {
-        width: 250px;
-    }
+  @media (max-width: 450px) {
+    width: 250px;
+  }
 }
 
 .label {
-    span {
-        cursor: pointer;
-    }
+  span {
+    cursor: pointer;
+  }
 }
 
 .icon {
-    display: inline-block;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: all 0.3s;
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: all 0.3s;
 }
 
 .popup {
-    position: absolute;
-    left: 0;
-    top: 50px;
-    width: 100%;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 100%;
 }
 
 .list {
-    background-color: var(--color-light);
-    border-radius: var(--border-radius);
-    padding: 10px;
-
+  background-color: var(--color-light);
+  border-radius: var(--border-radius);
+  padding: 10px;
 }
 
 .item {
-    padding-block: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
-    color: var(--color-dark);
-    border-radius: var(--border-radius);
-    text-align: center;
+  padding-block: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: var(--color-dark);
+  border-radius: var(--border-radius);
+  text-align: center;
 
-    &:hover {
-        color: var(--color-accent);
-    }
+  &:hover {
+    color: var(--color-accent);
+  }
 
-    &.active {
-        background-color: var(--color-accent);
-        color: var(--color-light);
-    }
+  &.active {
+    background-color: var(--color-accent);
+    color: var(--color-light);
+  }
 }

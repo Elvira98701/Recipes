@@ -1,59 +1,63 @@
-@import '@styles/mixins';
+@import "@styles/mixins";
 
 .favourites {
-    padding-block: 50px;
+  padding-block: 20px;
+  min-height: 80vh;
 }
 
 .header {
-    padding-bottom: 50px;
+  padding-bottom: 30px;
 }
 
 .title {
-
-    @media (max-width: 1050px) {
-        text-align: center;
-    }
+  @media (max-width: 1050px) {
+    text-align: center;
+  }
 }
 
 .cards {
-    display: grid;
-    flex-wrap: wrap;
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 20px;
+
+  @media (max-width: 1600px) {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    gap: 20px;
+  }
 
-    @media (max-width: 1400px) {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  @media (max-width: 1300px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-    @media (max-width: 1060px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  @media (max-width: 1060px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    @media (max-width: 730px) {
-        grid-template-columns: repeat(1, 1fr);
-    }
+  @media (max-width: 730px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .buttonWrapper {
-    @include flex-center;
-    padding-top: 50px;
+  @include flex-center;
+  padding-top: 20px;
 }
 
 .empty {
-    @include flex-center;
-    flex-direction: column;
-    row-gap: 30px;
+  @include flex-center;
+  flex-direction: column;
+  row-gap: 30px;
+  margin-top: 50px;
 
-    p {
-        background-color: var(--color-additional);
-        padding: 30px;
-        border-radius: var(--border-radius);
-    }
-
+  p {
+    background-color: var(--color-additional);
+    padding: 30px;
+    border-radius: var(--border-radius);
+  }
 }
 
 .emptyImage {
-    max-width: 400px;
-    width: 100%;
+  max-width: 400px;
+  width: 100%;
 }
