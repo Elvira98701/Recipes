@@ -66,6 +66,11 @@
   animation: zoom 0.3s ease-in;
   position: relative;
   padding-block: 20px;
+  margin: auto;
+
+  @media (max-width: 750px) {
+    margin: 15px;
+  }
 
   &::-webkit-scrollbar {
     width: 5px;
