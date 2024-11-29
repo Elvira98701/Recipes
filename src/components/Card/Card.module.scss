@@ -72,13 +72,19 @@
   }
 
   &::-webkit-backdrop {
-    background-color: rgb(0 0 0 / 0.1);
+    background-color: rgb(0 0 0 / 0.3);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+  }
+
+  &::-webkit-backdrop {
+    background-color: rgb(0 0 0 / 0.3);
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
   }
 
   &::backdrop {
-    background-color: rgb(0 0 0 / 0.6);
+    background-color: rgb(0 0 0 / 0.3);
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
   }
@@ -161,7 +167,7 @@
 
 @-webkit-keyframes zoom {
   0% {
-    transform: translateY(50%);
+    transform: translateY(-50%);
   }
 
   100% {
@@ -171,7 +177,7 @@
 
 @keyframes zoom {
   0% {
-    transform: translateY(50%);
+    transform: translateY(-50%);
   }
 
   100% {
