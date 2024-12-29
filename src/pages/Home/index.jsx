@@ -1,15 +1,18 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { motion } from "framer-motion";
+
+import useFetch from "@hooks/useFetch";
 
 import Categories from "@components/Categories";
 import Sort from "@components/Sort";
 import Card from "@components/Card";
 import Pagination from "@components/Pagination";
 import Skeleton from "@components/Skeleton/Skeleton";
-import useFetch from "@hooks/useFetch";
 import { FilterContext } from "@components/FilterProvider";
 import { FavouritesContext } from "@components/FavouritesProvider";
 import PageTransition from "@components/PageTransition";
+import Modal from "@components/Modal";
+
 import styles from "./Home.module.scss";
 
 const Home = () => {
@@ -20,6 +23,8 @@ const Home = () => {
     favouritesState: { favouritesList },
     favouritesDispatch,
   } = useContext(FavouritesContext);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [currentId, setCurrentId] = useState(0);
 
   const { items, total, isLoading } = useFetch(
     searchValue.length > 0
@@ -39,6 +44,17 @@ const Home = () => {
       newItem: obj,
     });
   };
+
+  const handleOpenModal = (id) => {
+    setIsOpenModal(true);
+    setCurrentId(id);
+  };
+
+  const handleCloseModal = () => {
+    setIsOpenModal(false);
+  };
+
+  const currentItem = items?.find((item) => item.id === currentId);
 
   return (
     <main className={styles.container}>
@@ -68,6 +84,7 @@ const Home = () => {
             items.map((item) => (
               <Card
                 handleClick={() => handleAddFavourites(item)}
+                handleOpenModal={handleOpenModal}
                 active={
                   favouritesList.findIndex((obj) => obj.id === item.id) !== -1
                 }
@@ -81,6 +98,9 @@ const Home = () => {
         </div>
         {items.length > 0 && <Pagination totalItems={total} />}
       </section>
+      {isOpenModal && currentItem && (
+        <Modal item={currentItem} handleCloseModal={handleCloseModal} />
+      )}
     </main>
   );
 };

@@ -19,6 +19,7 @@
 
 .content {
   padding-left: 20px;
+  min-height: 80vh;
 
   @media (max-width: 1200px) {
     padding-left: 0;

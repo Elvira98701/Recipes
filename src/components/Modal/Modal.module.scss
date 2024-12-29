@@ -1,0 +1,145 @@
+@import "@styles/mixins";
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(7.9px);
+  backdrop-filter: blur(2.5px);
+  -webkit-animation: fade 0.5s ease-in;
+  animation: fade 0.5s ease-in;
+  z-index: 20;
+  overflow-y: auto;
+  padding-block: 40px;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+}
+
+.inner {
+  max-width: 700px;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  border-radius: var(--border-radius);
+  position: relative;
+  padding: 20px;
+  -webkit-animation: translate 0.3s;
+  animation: translate 0.3s;
+  margin-inline: auto;
+}
+
+.buttonWrapper {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+.header {
+  @include flex-between;
+  background-color: var(--color-accent);
+  border-radius: var(--border-radius);
+  -moz-column-gap: 20px;
+  column-gap: 20px;
+
+  @media (max-width: 750px) {
+    flex-direction: column;
+  }
+}
+
+.bigImage {
+  flex: 1;
+  height: 350px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+
+  @media (max-width: 750px) {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-left-radius: 0;
+  }
+}
+
+.info {
+  flex: 1;
+  padding: 20px;
+}
+
+.overlayTitle {
+  font-size: 30px;
+  line-height: 1;
+}
+
+.informationList {
+  margin-top: 15px;
+
+  li {
+    font-size: 18px;
+  }
+}
+
+.subtitle {
+  margin-block: 20px;
+}
+
+.ingredientsList {
+  border-bottom: 1px solid rgb(0 0 0 / 0.1);
+  padding-bottom: 20px;
+}
+
+.ingredientsItem {
+  position: relative;
+  padding-left: 30px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    @include square(15px);
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+  }
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    topacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes translate {
+  0% {
+    transform: translateY(-100px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes translate {
+  0% {
+    transform: translateY(-100px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { FilterContext } from "@components/FilterProvider";
+
 import styles from "./Categories.module.scss";
 
 const categories = [

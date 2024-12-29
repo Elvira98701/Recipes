@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FilterContext } from "@components/FilterProvider";
+
 import styles from "./Search.module.scss";
 
 const Search = () => {

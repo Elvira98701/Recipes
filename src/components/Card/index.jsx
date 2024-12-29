@@ -1,38 +1,23 @@
-import { useEffect, useRef, useState } from "react";
 import Button from "@components/Button";
+
 import styles from "./Card.module.scss";
 
 const Card = ({
+  id,
   name,
   image,
   rating,
   handleClick,
   active,
-  ingredients = [],
-  instructions = [],
-  cookTimeMinutes,
-  caloriesPerServing,
-  difficulty,
-  servings,
+  handleOpenModal,
 }) => {
-  const [openModal, setOpenModal] = useState(false);
-  const modalRef = useRef();
-
-  useEffect(() => {
-    if (openModal) {
-      modalRef.current.showModal();
-    } else {
-      modalRef.current.close();
-    }
-  }, [openModal]);
-
   return (
     <div className={styles.card}>
       <img className={styles.image} src={image} alt={name} />
       <div className={styles.description}>
         <h2 className={styles.title}>{name}</h2>
         <div className={styles.body}>
-          <Button onClick={() => setOpenModal(true)}>View</Button>
+          <Button onClick={() => handleOpenModal(id)}>View</Button>
           <svg
             onClick={handleClick}
             xmlns="http://www.w3.org/2000/svg"
@@ -46,52 +31,6 @@ const Card = ({
         </div>
       </div>
       <span className={styles.rating}>{rating}</span>
-
-      <dialog className={styles.overlay} ref={modalRef}>
-        <div className={styles.inner}>
-          <div className={styles.header}>
-            <img className={styles.bigImage} src={image} alt="name" />
-            <div className={styles.info}>
-              <h3 className={styles.overlayTitle}>{name}</h3>
-              <ul className={styles.informationList}>
-                <li>
-                  <b>Calories:</b> {caloriesPerServing}
-                </li>
-                <li>
-                  <b>Cook Time:</b> {cookTimeMinutes} min
-                </li>
-                <li>
-                  <b>Difficulty:</b> {difficulty}
-                </li>
-                <li>
-                  <b>Servings:</b> {servings}
-                </li>
-              </ul>
-            </div>
-            <div className={styles.buttonWrapper}>
-              <Button onClick={() => setOpenModal(false)}>close</Button>
-            </div>
-          </div>
-          <div>
-            <h4 className={styles.subtitle}>Ingredients</h4>
-            <ul className={styles.ingredientsList}>
-              {ingredients.map((ingredient, i) => (
-                <li className={styles.ingredientsItem} key={i}>
-                  {ingredient}
-                </li>
-              ))}
-            </ul>
-            <h4 className={styles.subtitle}>Instructions</h4>
-            <ol className={styles.instructionsList}>
-              {instructions.map((instruction, i) => (
-                <li className={styles.instructionsItem} key={i}>
-                  {instruction}
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </dialog>
     </div>
   );
 };

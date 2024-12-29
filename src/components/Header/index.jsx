@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import Logo from "@components/Logo";
 import Search from "@components/Search";
 import { FavouritesContext } from "@components/FavouritesProvider";
+
 import styles from "./Header.module.scss";
 
 const Header = () => {

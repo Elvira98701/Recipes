@@ -74,7 +74,12 @@ const Footer = () => {
       <ul className={styles.list}>
         {socialList.map(({ id, title, img, link }) => (
           <li key={id}>
-            <a className={styles.link} href={link} target="_blank">
+            <a
+              className={styles.link}
+              href={link}
+              target="_blank"
+              title={title}
+            >
               {img}
             </a>
           </li>
