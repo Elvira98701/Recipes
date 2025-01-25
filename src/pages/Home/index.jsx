@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import useFetch from "@hooks/useFetch";
@@ -37,6 +37,11 @@ const Home = () => {
           skipItems * 8
         }`
   );
+
+  useEffect(() => {
+    document.body.addEventListener("click", handleCloseModal);
+    return () => document.body.removeEventListener("click", handleCloseModal);
+  }, []);
 
   const handleAddFavourites = (obj) => {
     favouritesDispatch({

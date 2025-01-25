@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FavouritesContext } from "@components/FavouritesProvider";
 import PageTransition from "@components/PageTransition";
 import Card from "@components/Card";
@@ -15,6 +15,11 @@ const Favourites = () => {
   } = useContext(FavouritesContext);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [currentId, setCurrentId] = useState(0);
+
+  useEffect(() => {
+    document.body.addEventListener("click", handleCloseModal);
+    return () => document.body.removeEventListener("click", handleCloseModal);
+  }, []);
 
   const handleAddFavourites = (obj) => {
     favouritesDispatch({

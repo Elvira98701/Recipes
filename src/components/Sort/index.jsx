@@ -1,14 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FilterContext } from "@components/FilterProvider";
+import { sortList } from "./data";
 
 import styles from "./Sort.module.scss";
-
-const sortList = [
-  { id: 0, name: "Name", sort: "name" },
-  { id: 1, name: "Rating", sort: "rating" },
-  { id: 2, name: "Calories", sort: "caloriesPerServing" },
-];
 
 const Sort = () => {
   const {

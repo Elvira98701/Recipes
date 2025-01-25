@@ -17,7 +17,14 @@ const Card = ({
       <div className={styles.description}>
         <h2 className={styles.title}>{name}</h2>
         <div className={styles.body}>
-          <Button onClick={() => handleOpenModal(id)}>View</Button>
+          <Button
+            onClick={(event) => {
+              event.stopPropagation();
+              handleOpenModal(id);
+            }}
+          >
+            View
+          </Button>
           <svg
             onClick={handleClick}
             xmlns="http://www.w3.org/2000/svg"

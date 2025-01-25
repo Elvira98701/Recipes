@@ -5,7 +5,10 @@ import styles from "./Modal.module.scss";
 const Modal = ({ item = [], handleCloseModal }) => {
   return (
     <div className={styles.overlay}>
-      <div className={styles.inner}>
+      <div
+        className={styles.inner}
+        onClick={(event) => event.stopPropagation()}
+      >
         <div className={styles.header}>
           <img className={styles.bigImage} src={item.image} alt="name" />
           <div className={styles.info}>
