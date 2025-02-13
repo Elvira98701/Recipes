@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import useFetch from "@hooks/useFetch";
 
@@ -103,9 +103,11 @@ const Home = () => {
         </div>
         {items.length > 0 && <Pagination totalItems={total} />}
       </section>
-      {isOpenModal && currentItem && (
-        <Modal item={currentItem} handleCloseModal={handleCloseModal} />
-      )}
+      <AnimatePresence initial={false}>
+        {isOpenModal && currentItem && (
+          <Modal item={currentItem} handleCloseModal={handleCloseModal} />
+        )}
+      </AnimatePresence>
     </main>
   );
 };

@@ -6,8 +6,6 @@
   background: rgba(0, 0, 0, 0.7);
   -webkit-backdrop-filter: blur(7.9px);
   backdrop-filter: blur(2.5px);
-  -webkit-animation: fade 0.5s ease-in;
-  animation: fade 0.5s ease-in;
   z-index: 20;
   overflow-y: auto;
   padding-block: 40px;
@@ -24,8 +22,6 @@
   border-radius: var(--border-radius);
   position: relative;
   padding: 20px;
-  -webkit-animation: translate 0.3s;
-  animation: translate 0.3s;
   margin-inline: auto;
 }
 
@@ -101,45 +97,5 @@
     @include square(15px);
     border: 2px solid var(--color-accent);
     border-radius: 50%;
-  }
-}
-
-@-webkit-keyframes fade {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade {
-  0% {
-    topacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes translate {
-  0% {
-    transform: translateY(-100px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes translate {
-  0% {
-    transform: translateY(-100px);
-  }
-
-  100% {
-    transform: translateY(0);
   }
 }

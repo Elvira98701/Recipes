@@ -7,6 +7,7 @@ import Modal from "@components/Modal";
 
 import IMG from "../../assets/icons/bg.svg";
 import styles from "./Favourites.module.scss";
+import { AnimatePresence } from "framer-motion";
 
 const Favourites = () => {
   const {
@@ -78,9 +79,11 @@ const Favourites = () => {
           <p>There are no favorite recipes in the list yet.</p>
         </div>
       )}
-      {isOpenModal && currentItem && (
-        <Modal item={currentItem} handleCloseModal={handleCloseModal} />
-      )}
+      <AnimatePresence initial={false}>
+        {isOpenModal && currentItem && (
+          <Modal item={currentItem} handleCloseModal={handleCloseModal} />
+        )}
+      </AnimatePresence>
     </div>
   );
 };

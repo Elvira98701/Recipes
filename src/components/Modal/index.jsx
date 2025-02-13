@@ -1,11 +1,42 @@
 import Button from "@components/Button";
+import { motion } from "framer-motion";
 
 import styles from "./Modal.module.scss";
 
 const Modal = ({ item = [], handleCloseModal }) => {
   return (
-    <div className={styles.overlay}>
-      <div
+    <motion.div
+      className={styles.overlay}
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      exit={{
+        opacity: 0,
+      }}
+      transition={{
+        duration: 0.7,
+      }}
+    >
+      <motion.div
+        initial={{
+          y: "-100%",
+          opacity: 0,
+        }}
+        animate={{
+          y: "0%",
+          opacity: 1,
+        }}
+        exit={{
+          y: "100%",
+          opacity: 0,
+        }}
+        transition={{
+          type: "spring",
+          duration: 0.7,
+        }}
         className={styles.inner}
         onClick={(event) => event.stopPropagation()}
       >
@@ -50,8 +81,8 @@ const Modal = ({ item = [], handleCloseModal }) => {
             ))}
           </ol>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
