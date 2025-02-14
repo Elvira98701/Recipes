@@ -21,6 +21,7 @@ const Pagination = ({ totalItems }) => {
         }
         disabled={skipItems === 0}
         type="button"
+        title="prev"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +52,7 @@ const Pagination = ({ totalItems }) => {
         }
         type="button"
         disabled={skipItems === paginationLength - 1}
+        title="next"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
