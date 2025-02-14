@@ -4,7 +4,7 @@ import styles from "./Logo.module.scss";
 
 const Logo = () => {
   return (
-    <Link to="/" className={styles.logo}>
+    <Link to="/" className={styles.logo} aria-label="Home" title="Go to home">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="32"

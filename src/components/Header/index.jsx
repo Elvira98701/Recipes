@@ -18,7 +18,12 @@ const Header = () => {
       <Logo />
       <div className={styles.wrapper}>
         {pathname !== "/favourites" && <Search />}
-        <Link to="/favourites" className={styles.favouritesLink}>
+        <Link
+          to="/favourites"
+          className={styles.favouritesLink}
+          aria-label="favourites"
+          title="Go to Favorites"
+        >
           <svg
             className={styles.icon}
             xmlns="http://www.w3.org/2000/svg"
